@@ -47,7 +47,7 @@ public class RWayTrie implements Trie {
             }
         }
         for (RWayTrie toCont : continuings) {
-            if ((!toCont.str.equals(".")) && toCont.str.charAt(elem.length() - 1) == elem.charAt(elem.length() - 1)) {
+            if (!toCont.str.equals(".") && toCont.str.charAt(elem.length() - 1) == elem.charAt(elem.length() - 1)) {
 
                 return toCont;
             }
@@ -99,7 +99,7 @@ public class RWayTrie implements Trie {
         return rWay.contains(".");
     }
 
-    public boolean contain5(String word) {
+    public boolean cont(String word) {
         RWayTrie rWay = contain(word);
         return rWay != null;
     }
@@ -144,7 +144,7 @@ public class RWayTrie implements Trie {
     public Iterable<String> wordsWithPrefix(String s) {
 
         Queue queue = new Queue();
-        if (contain5(s) || s.equals("")) {
+        if (cont(s) || s.equals("")) {
             RWayTrie rWay = this;
 
             for (int i = 0; i < s.length(); i++) {
